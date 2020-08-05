@@ -325,12 +325,6 @@ git-tree-sha1 = "0ce9a7fa68c70cf83c49d05d2c04d91b47404b08"
 uuid = "856f044c-d86e-5d09-b602-aeab76dc8ba7"
 version = "2020.1.216+0"
 
-[[MLBase]]
-deps = ["IterTools", "Random", "Reexport", "StatsBase", "Test"]
-git-tree-sha1 = "f63a8d37429568b8c4384d76c4a96fc2897d6ddf"
-uuid = "f0e99cf1-93fa-52ec-9ecc-5026115318e0"
-version = "0.8.0"
-
 [[MacroTools]]
 deps = ["Markdown", "Random"]
 git-tree-sha1 = "f7d2e3f654af75f01ec49be82c231c382214223a"
@@ -383,14 +377,6 @@ version = "4.4.0"
 git-tree-sha1 = "c84c576296d0e2fbb3fc134d3e09086b3ea617cd"
 uuid = "77ba4419-2d1f-58cd-9bb1-8ffee604a2e3"
 version = "0.3.4"
-
-[[NonNegLeastSquares]]
-deps = ["Distributed", "LinearAlgebra", "SparseArrays"]
-git-tree-sha1 = "66daf1129f40d598c45cfc0f0fe1c1d2649a28cf"
-repo-rev = "master"
-repo-url = "https://github.com/ahwillia/NonNegLeastSquares.jl"
-uuid = "b7351bd1-99d9-5c5d-8786-f205a815c4d7"
-version = "0.2.0"
 
 [[OffsetArrays]]
 git-tree-sha1 = "2066e16af994955287f2e03ba1d9e890eb43b0dd"

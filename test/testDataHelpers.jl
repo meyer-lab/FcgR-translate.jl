@@ -1,12 +1,12 @@
 @testset "dataHelpers.jl tests" begin
     @testset "Testing human FcgR abundance import" begin
-        arr_HIV = FcgR.importRtot(murine = false)
-        arr_heterozygote = FcgR.importRtot(murine = false, genotype = "ZZZ")
-        arr_RTF = FcgR.importRtot(murine = false, genotype = "RTF")
-        arr_HZF = FcgR.importRtot(murine = false, genotype = "HZF")
+        arr_HIV = FcTranslation.importRtot(murine = false)
+        arr_heterozygote = FcTranslation.importRtot(murine = false, genotype = "ZZZ")
+        arr_RTF = FcTranslation.importRtot(murine = false, genotype = "RTF")
+        arr_HZF = FcTranslation.importRtot(murine = false, genotype = "HZF")
 
         ## Set up mapping
-        receps = string.(FcgR.humanFcgR)
+        receps = string.(FcTranslation.humanFcgR)
         idxs = 1:9
         d = Dict(receps .=> idxs)
 
@@ -24,19 +24,6 @@
         @test(arr_HZF[d["FcgRIIA-131H"], :] == arr_HIV[d["FcgRIIA-131H"], :])
         @test(arr_HZF[d["FcgRIIB-232I"], :] == arr_HZF[d["FcgRIIB-232T"], :])
         @test(arr_RTF[d["FcgRIIB-232T"], :] == arr_HZF[d["FcgRIIB-232I"], :] .+ arr_HZF[d["FcgRIIB-232T"], :])
-    end
-
-    @testset "Depletion data can be imported" begin
-        for dataType in ["ITP", "blood", "bone", "melanoma", "HIV"]
-            df = FcgR.importDepletion(dataType)
-            @test eltype(propertynames(df)) == Symbol
-            @test eltype(df[!, :Condition]) == Symbol
-        end
-        for dataType in ["blood", "spleen", "bone"]
-            df = FcgR.importHumanized(dataType)
-            @test eltype(propertynames(df)) == Symbol
-            @test eltype(df[!, :Condition]) == Symbol
-        end
     end
 
 end

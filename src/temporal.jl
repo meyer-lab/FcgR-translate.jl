@@ -1,5 +1,5 @@
 using DataFrames
-import Statistics: mean, std
+import Statistics: mean, std, quantile
 
 function plotTemporal()
     setGadflyTheme()
@@ -96,7 +96,7 @@ function plot_Murphy2(L0, f)
         DataFrame!
     df[!, :Subject] .= Symbol.(df[!, :Subject])
     res = polyfcm_ActV(
-        Matrix(df[:, FcgR.humanIgG])' .* L0,
+        Matrix(df[:, humanIgG])' .* L0,
         KxConst,
         f,
         importRtot(murine = false, retdf = false),
