@@ -6,4 +6,3 @@ using LinearAlgebra
 
 include("testDataHelpers.jl")
 include("testTranslation.jl")
-
