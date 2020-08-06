@@ -1,6 +1,6 @@
 # A human-murine FcγR translation model
 
-[![Build Status](https://transduc.seas.ucla.edu/buildStatus/icon?job=meyer-lab%2FFcgR-translate.jl%2Fmaster)](https://transduc.seas.ucla.edu/job/meyer-lab/job/FcgR-translate.jl/job/master/)
-[![Translation Manuscript](https://img.shields.io/static/v1?label=manuscript&message=translation&color=blue)](https://transduc.seas.ucla.edu/job/meyer-lab/job/FcgR-translate.jl/job/master/Translation_20Paper)
+[![Build Status](https://transduc.seas.ucla.edu/buildStatus/icon?job=meyer-lab%2FFcTranslation.jl%2Fmaster)](https://transduc.seas.ucla.edu/job/meyer-lab/job/FcTranslation.jl/job/master/)
+[![Translation Manuscript](https://img.shields.io/static/v1?label=manuscript&message=translation&color=blue)](https://transduc.seas.ucla.edu/job/meyer-lab/job/FcTranslation.jl/job/master/Translation_20Paper)
 
 Study Fc antibody effector responses using a multivalent binding model.
