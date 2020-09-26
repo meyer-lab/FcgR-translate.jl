@@ -9,12 +9,14 @@ venv/bin/activate: requirements.txt
 	touch venv/bin/activate
 
 figures:
+	mkdir -p ./output/
 	julia -e 'using Pkg; Pkg.activate("."); using FcTranslation; FcTranslation.figureAll()'
 
 figure%.svg:
 	julia -e 'using Pkg; Pkg.activate("."); using FcTranslation; FcTranslation.figure$*()'
 
 temporal:
+	mkdir -p ./output/
 	julia -e 'using Pkg; Pkg.activate("."); using FcTranslation; FcTranslation.plotTemporal()'
 
 output/manuscript.md: venv manuscripts/*.md
@@ -22,7 +24,6 @@ output/manuscript.md: venv manuscripts/*.md
 	. venv/bin/activate && manubot process --content-directory=manuscripts/ --output-directory=output/ --log-level=WARNING
 
 output/manuscript.html: venv output/manuscript.md
-	cp *.svg output/
 	. venv/bin/activate && pandoc \
 		--from=markdown --to=html5 --filter=pandoc-fignos --filter=pandoc-eqnos --filter=pandoc-tablenos \
 		--bibliography=output/references.json \
@@ -42,10 +43,5 @@ output/manuscript.html: venv output/manuscript.md
 		--include-after-body=common/templates/manubot/plugins/hypothesis.html \
 		--output=output/manuscript.html output/manuscript.md
 
-coverage.cob:
-	julia -e 'using Pkg; Pkg.add("Coverage"); using Coverage; Pkg.activate("."); Pkg.test("FcTranslation"; coverage=true); coverage = process_folder(); LCOV.writefile("coverage-lcov.info", coverage)'
-	pip3 install --user lcov_cobertura
-	python3 ~/.local/lib/python3.8/site-packages/lcov_cobertura.py coverage-lcov.info -o coverage.cob
-
 clean:
-	rm -rf *.svg venv output
+	rm -rf venv output
