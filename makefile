@@ -10,14 +10,14 @@ venv/bin/activate: requirements.txt
 
 figures:
 	mkdir -p ./output/
-	julia -e 'using Pkg; Pkg.activate("."); using FcTranslation; FcTranslation.figureAll()'
+	julia -e 'using Pkg; Pkg.activate("."); Pkg.instantiate(); using FcTranslation; FcTranslation.figureAll()'
 
 figure%.svg:
-	julia -e 'using Pkg; Pkg.activate("."); using FcTranslation; FcTranslation.figure$*()'
+	julia -e 'using Pkg; Pkg.activate("."); Pkg.instantiate(); using FcTranslation; FcTranslation.figure$*()'
 
 temporal:
 	mkdir -p ./output/
-	julia -e 'using Pkg; Pkg.activate("."); using FcTranslation; FcTranslation.plotTemporal()'
+	julia -e 'using Pkg; Pkg.activate("."); Pkg.instantiate(); using FcTranslation; FcTranslation.plotTemporal()'
 
 output/manuscript.md: venv manuscripts/*.md
 	mkdir -p ./output/
